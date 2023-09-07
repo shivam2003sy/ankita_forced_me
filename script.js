@@ -40,7 +40,7 @@ function updateThirdColumn() {
         case 1:
             thirdColumn.innerHTML = `<h4>
                                             What are we going to do in this Experiment ? </h4>
-                                            <p>Here we are determining the lattice parameter of BCC & FCC using XRD. </p>`;
+                                            <p1>Determining the lattice parameters of crystal structures like BCC and FCC using X-ray diffraction (XRD) involves a series of steps and experimental procedures. </p1> <ul> <li> Sample Preparation </li> <li> X-ray Diffraction Setup </li> <li> Data Collection </li> <li> Data Analysis </li> <li>Determining Miller Indices </li>   <li>Calculating Interplanar Spacing</li>  <li>Calculating Lattice Parameters</li> </ul>`;
             break;
         case 2:
             thirdColumn.innerHTML = ' <h4>Explanation </h4> <strong>1. X-ray Source:</strong><p1> X-ray tubes or synchrotrons are commonly used as X-ray sources. X-rays are produced by bombarding a target material with high-energy electrons.</p1> <br/> <strong>2. Sample Holder or Goniometer: </strong><p1>The sample holder, often part of a goniometer, holds the sample in a fixed position.</p1> <br/> <strong>3. Detector: </strong><p1>X-rays that are scattered by the sample at different angles strike a detector. data collected by the detector forms the diffraction pattern. <p1/>'
