@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,130 +12,144 @@
 
     <link rel="stylesheet" href="style.css">
     <style>
-         body {
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        background-color: black;
-        overflow: hidden; 
-    }
-    .page img {
-        max-width: 90%;
-        height: auto; 
-    }
-    .content-main .btn-container {
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* background-color: black; */
+            overflow: hidden;
+        }
+
+        .page img {
+            max-width: 90%;
+            height: auto;
+        }
+
+        .content-main .btn-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
             padding: "5px";
+           
         }
 
         /* Style button icons */
         .content-main .btn-container button i {
-            margin-right: 5px; /* Add spacing between icon and text */
+            margin-right: 5px;
+            /* Add spacing between icon and text */
         }
 
+        .content-main .btn-container button{
+             margin-right: 30px;
+            margin-left: 30px; 
+        }
     </style>
-   
+
 </head>
+
 <body>
     <header>
-        <h3>Header Section</h3>
+        <h3>Determination of Precious Lattice Parameter of FCC and BCC phases using X-ray diffraction</h3>
     </header>
 
     <main>
-        
-            <div class="container">
-                <div class="row">
-                  <div class="col-lg-3">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
                     <div class="tracking-sidebar">
-                        <h3>Progress</h3>
+                        <h4>Steps</h4>
                         <ul>
                             <li class="active" data-page="page1">Introduction</li>
                             <li data-page="page2">Know XRD Machine</li>
                             <li data-page="page3">Sample Preparation</li>
                             <li data-page="page4">Put Sample into machine</li>
-                            <li data-page="page5"> output  </li>
+                            <li data-page="page5"> output </li>
                             <li data-page="page6">Peek label</li>
                             <li data-page="page6">pattern indexed</li>
                         </ul>
                         <button onclick="reset()"> Reset </button>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
+                </div>
+                <div class="col-lg-6">
                     <div class="content-main">
                         <div class="page active-page" id="page1">
                             <div class="image-container">
                                 <div class="image-overlay">
-                                <img id="image1" src="xrd.gif" alt="XRD" />
-                        
+                                    <img id="image1" src="xrd.gif" alt="XRD" />
+
+                                </div>
                             </div>
+
                         </div>
-                            
-                        </div>
-                
+
                         <div class="page" id="page2">
-                            <h2>These are the Components of XRD machine</h2>
+                            <h3> Components of XRD machine</h3>
                             <div class="image-container">
-                            <div class="image-overlay">
-                            <img id="image2" src="xrdwithlabel.png" alt="Other Image"  />
-                            
-                            />   
-                            
+                                <div class="image-overlay">
+                                    <img id="image2" src="xrdwithlabel.png" alt="Other Image" />
                                 </div>
                             </div>
                         </div>
                         <div class="page" id="page3">
-                            <h2>Prepare Powder Sample and machine Configurations</h2>
-                            <p> Ankita thoda dhudh ka internet s  , ya  jo sir n batya the ki kya options chaye jasie 
-                            temp ect . 
-                                
+                            <h3>Prepare Powder Sample and machine Configurations</h3>
+                            <p> Ankita thoda dhudh ka internet s , ya jo sir n batya the ki kya options chaye jasie
+                                temp ect .
+
                             </p>
                             <div class="dropdown">
                                 <button id="dropdownBtn" class="dropbtn">Dropdown</button>
                                 <div id="dropdownContent" class="dropdown-content">
-                                  <a href="#" data-value="Sample no. 0134">Sample no. 0134</a>
-                                  <a href="#" data-value="Sample no. 0297">Sample no  0297</a>
+                                    <a href="#" data-value="Sample no. 0134">Sample no. 0134</a>
+                                    <a href="#" data-value="Sample no. 0297">Sample no 0297</a>
                                 </div>
-                              </div>
+                            </div>
                         </div>
-                
+
                         <div class="page" id="page4">
-                            <h2>Put the powder Smaple</h2>
+                            <h3>Put the powder Sample</h3>
                             <div class="image-container">
                                 <img id="gifImage" src="sampleput.gif" alt="GIF" />
                             </div>
                         </div>
-                        
+
                         <div class="page" id="page5">
-                            <h2>X-ray diffraction patterns</h2>
+                            <h3>X-ray diffraction patterns</h3>
                             <img id="imageToShow" src="" alt="Image" />
                         </div>
+
+
                         <div class="page" id="page6">
-                            <h2>Caculation</h2>
+                            <h3>Caculation</h3>
                             <img id="imageToShowPeeks" src="" alt="Image" />
                         </div>
+                        
+
                         <div class="page" id="page7">
-                            
+
                         </div>
+
+
                         <div class="btn-container">
-                            <button onclick="previousPage()" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Previous</button>
-                            <button onclick="nextPage()" class="btn btn-primary">Next <i class="fas fa-chevron-right"></i></button>
+                            <button onclick="previousPage()" class="btn btn-primary"><i class="fas fa-chevron-left"></i>
+                                Previous</button>
+                            <button onclick="nextPage()" class="btn btn-primary">Next <i
+                                    class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
-                  </div>
-                  <div class="col-lg-2" id="third-column">
-                   
                 </div>
+                <div class="col-lg-3" id="third-column">
+
                 </div>
-              </div>
-            
+            </div>
         </div>
-    
-       
+
+        </div>
+
+
     </main>
     <footer>
 
@@ -153,4 +168,5 @@
     </script>
     <script src="script.js"></script>
 </body>
+
 </html>
