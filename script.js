@@ -94,7 +94,7 @@ submitButton.addEventListener('click', () => {
             ${values.map(value => `<li>${value}</li>`).join('')}</ol>`;
                 thirdColumn.innerHTML = orderedListHTML;
             }
-            break;
+        break;
 
         case 8:
 
@@ -228,91 +228,59 @@ const data = [
 
 ];
 
+// function generateTable() 
+    // Your data for the table
+    // const data = [
+    //     { theta: 38.68, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
+    //     { theta: 44.98, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
+    //     { theta: 65.49, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
+    // ];
 
-// Calculate and add the result for each data entry
-const lambda = 1.5418; // Replace with your wavelength in angstroms
+    // Calculate and add the result for each data entry
+    const lambda = 1.5418; // Replace with your wavelength in angstroms
 
-data.forEach(entry => {
-    const thetaRadians = (Math.PI * entry.theta) / 180;
-    entry.result = lambda / (2 * Math.sin(thetaRadians / 2));
-});
+    data.forEach(entry => {
+        const thetaRadians = (Math.PI * entry.theta) / 180;
+        entry.result = lambda / (2 * Math.sin(thetaRadians / 2));
+    });
 
-
-// Start building the HTML table
-
-
-
-let tableHTML = '<table>';
-
-tableHTML += '<tr>';
-tableHTML += '<th> λ(Å)</th>';
-tableHTML += '<th>h</th>';
-tableHTML += '<th>k</th>';
-tableHTML += '<th>l</th>';
-tableHTML += '<th>2θ</th>';
-tableHTML += '<th>θ</th>';
-tableHTML += '<th>sinθ</th>';
-tableHTML += '<th>dhlk = λ/2sinθ</th>'; // Add a new column for the calculated result
-tableHTML += '<th> a </th>'
-tableHTML += '</tr>';
-
-
-
-
-
-
-// Loop through the data and add rows
-
-for (const row of data) {
-    const calculatedData = row.formula(row.theta);
-
+    // Start building the HTML table
+    let tableHTML = '<table>';
     tableHTML += '<tr>';
-    tableHTML += `<td>1.5</td>`;
-    tableHTML += `<td></td>`;
-    tableHTML += `<td></td>`;
-    tableHTML += `<td></td>`;
-    tableHTML += `<td>${calculatedData.theta.toFixed(2)}</td>`;
-    tableHTML += `<td>${calculatedData.thetaOver2.toFixed(2)}</td>`;
-    tableHTML += `<td>${calculatedData.s.toFixed(10)}</td>`;
-    tableHTML += `<td>${row.result.toFixed(10)}</td>`; // Display the calculated result
-    tableHTML += `<td></td>`;
+    tableHTML += '<th> λ(Å)</th>';
+    tableHTML += '<th>h</th>';
+    tableHTML += '<th>k</th>';
+    tableHTML += '<th>l</th>';
+    tableHTML += '<th>2θ</th>';
+    tableHTML += '<th>θ</th>';
+    tableHTML += '<th>sinθ</th>';
+    tableHTML += '<th>dhlk = λ/2sinθ</th>'; // Add a new column for the calculated result
+    tableHTML += '<th> a </th>';
     tableHTML += '</tr>';
-}
 
-// Finish building the HTML table
-tableHTML += '</table>';
+    // Loop through the data and add rows
+    for (const row of data) {
+        const calculatedData = row.formula(row.theta);
+        tableHTML += '<tr>';
+        tableHTML += `<td>1.5</td>`;
+        tableHTML += `<td></td>`;
+        tableHTML += `<td></td>`;
+        tableHTML += `<td></td>`;
+        tableHTML += `<td>${calculatedData.theta.toFixed(2)}</td>`;
+        tableHTML += `<td>${calculatedData.thetaOver2.toFixed(2)}</td>`;
+        tableHTML += `<td>${calculatedData.s.toFixed(10)}</td>`;
+        tableHTML += `<td>${row.result.toFixed(10)}</td>`; // Display the calculated result
+        tableHTML += `<td></td>`;
+        tableHTML += '</tr>';
+    }
 
-// Replace the content of the element with id "page7" with the new content
-document.getElementById('page7').innerHTML = tableHTML;
+    // Finish building the HTML table
+    tableHTML += '</table>';
+
+    // Replace the content of the element with id "page7" with the new content
+    document.getElementById('page7').innerHTML = tableHTML;
 
 
-// Import necessary libraries
-const math = require('mathjs');
-function loadCalation() {
-
-    // List of peak positions in 2θ angles (in degrees)
-    const peakPositions = [38.68,
-        44.98,
-        65.49,
-        78.73,
-        82.98
-    ]; // Replace with your peak positions
-
-
-    // Calculate lattice parameters using peak positions and Bragg's law
-    const latticeConstants = peakPositions.map(angle => {
-        const twoTheta = math.unit(angle, 'degree');
-        const dSpacing = lambda / (2 * math.sin(twoTheta / 2));
-        return 2 * dSpacing; // This assumes a cubic lattice; adjust as needed
-    });
-
-    // Output lattice parameters
-    console.log('Lattice Parameters:');
-    latticeConstants.forEach((a, index) => {
-        console.log(`a${index + 1}: ${a} Ångstroms`);
-    });
-
-}
 
 
 updateProgress();
