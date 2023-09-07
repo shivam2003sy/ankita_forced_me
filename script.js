@@ -62,28 +62,28 @@ function updateThirdColumn() {
 
             // thirdColumn.innerHTML = '  <div class="card">  <h6> Setup scanning parameters</h6> <hr/> <label for="temperature"> <strong> Temperature (°C): </strong></label> <div class="input-group"><button id="decrease">-</button><input type="text" id="temperature" value="25" readonly><button id="increase">+</button></div>   <strong> Scanning: </strong>   </div>';
 
-            // const decreaseButton = document.getElementById('decrease');
-            // const increaseButton = document.getElementById('increase');
-            // const temperatureInput = document.getElementById('temperature');
+            const decreaseButton = document.getElementById('decrease');
+            const increaseButton = document.getElementById('increase');
+            const temperatureInput = document.getElementById('temperature');
 
-            // // Function to decrease temperature
-            // decreaseButton.addEventListener('click', () => {
-            //     let currentTemperature = parseFloat(temperatureInput.value);
-            //     currentTemperature -= 5;
-            //     temperatureInput.value = currentTemperature.toFixed(1);
-            // });
+            // Function to decrease temperature
+            decreaseButton.addEventListener('click', () => {
+                let currentTemperature = parseFloat(temperatureInput.value);
+                currentTemperature -= 5;
+                temperatureInput.value = currentTemperature.toFixed(1);
+            });
 
-            // // Function to increase temperature
-            // increaseButton.addEventListener('click', () => {
-            //     let currentTemperature = parseFloat(temperatureInput.value);
-            //     currentTemperature += 5;
-            //     temperatureInput.value = currentTemperature.toFixed(1);
-            // });
+            // Function to increase temperature
+            increaseButton.addEventListener('click', () => {
+                let currentTemperature = parseFloat(temperatureInput.value);
+                currentTemperature += 5;
+                temperatureInput.value = currentTemperature.toFixed(1);
+            });
 
-            // // Prevent non-numeric input in the temperature field
-            // temperatureInput.addEventListener('input', () => {
-            //     temperatureInput.value = temperatureInput.value.replace(/[^0-9.]/g, '');
-            // });
+            // Prevent non-numeric input in the temperature field
+            temperatureInput.addEventListener('input', () => {
+                temperatureInput.value = temperatureInput.value.replace(/[^0-9.]/g, '');
+            });
 
 
             break;
