@@ -45,40 +45,51 @@ function updateThirdColumn() {
         case 2:
             thirdColumn.innerHTML = ' <h4>Explanation </h4> <strong>1. X-ray Source:</strong><p1> X-ray tubes or synchrotrons are commonly used as X-ray sources. X-rays are produced by bombarding a target material with high-energy electrons.</p1> <br/> <strong>2. Sample Holder or Goniometer: </strong><p1>The sample holder, often part of a goniometer, holds the sample in a fixed position.</p1> <br/> <strong>3. Detector: </strong><p1>X-rays that are scattered by the sample at different angles strike a detector. data collected by the detector forms the diffraction pattern. <p1/>'
             break;
+
+
         case 3:
-            thirdColumn.innerHTML = '  <div class="card">  <h6> Setup scanning parameters</h6> <hr/> <label for="temperature"> <strong> Temperature (°C): </strong></label> <div class="input-group"><button id="decrease">-</button><input type="text" id="temperature" value="25" readonly><button id="increase">+</button></div>   <strong> Scanning: </strong>   </div>';
-
-
-            const decreaseButton = document.getElementById('decrease');
-            const increaseButton = document.getElementById('increase');
-            const temperatureInput = document.getElementById('temperature');
-
-            // Function to decrease temperature
-            decreaseButton.addEventListener('click', () => {
-                let currentTemperature = parseFloat(temperatureInput.value);
-                currentTemperature -= 5;
-                temperatureInput.value = currentTemperature.toFixed(1);
-            });
-
-            // Function to increase temperature
-            increaseButton.addEventListener('click', () => {
-                let currentTemperature = parseFloat(temperatureInput.value);
-                currentTemperature += 5;
-                temperatureInput.value = currentTemperature.toFixed(1);
-            });
-
-            // Prevent non-numeric input in the temperature field
-            temperatureInput.addEventListener('input', () => {
-                temperatureInput.value = temperatureInput.value.replace(/[^0-9.]/g, '');
-            });
-
-
-            break;
-        case 4:
             storedSampleName = sessionStorage.getItem('selectedOption');
             console.log(storedSampleName)
             loadImage(storedSampleName)
             thirdColumn.innerHTML = '<h4>Page 4 Content</h4><p>This is the content of Page 3.</p>';
+            break;
+        case 4:
+
+            thirdColumn.innerHTML = ' <h4>Step 4 </h4>  <p> After the sample has been installed and the doors closed, We should specify the parameters of scanning (starting and ending angle, step, radiation, the use of a monochromator, and experiment temperature).</p> '
+
+
+            // ===== card html =======
+
+            // thirdColumn.innerHTML = '  <div class="card">  <h6> Setup scanning parameters</h6> <hr/> <label for="temperature"> <strong> Temperature (°C): </strong></label> <div class="input-group"><button id="decrease">-</button><input type="text" id="temperature" value="25" readonly><button id="increase">+</button></div>   <strong> Scanning: </strong>   </div>';
+
+            // const decreaseButton = document.getElementById('decrease');
+            // const increaseButton = document.getElementById('increase');
+            // const temperatureInput = document.getElementById('temperature');
+
+            // // Function to decrease temperature
+            // decreaseButton.addEventListener('click', () => {
+            //     let currentTemperature = parseFloat(temperatureInput.value);
+            //     currentTemperature -= 5;
+            //     temperatureInput.value = currentTemperature.toFixed(1);
+            // });
+
+            // // Function to increase temperature
+            // increaseButton.addEventListener('click', () => {
+            //     let currentTemperature = parseFloat(temperatureInput.value);
+            //     currentTemperature += 5;
+            //     temperatureInput.value = currentTemperature.toFixed(1);
+            // });
+
+            // // Prevent non-numeric input in the temperature field
+            // temperatureInput.addEventListener('input', () => {
+            //     temperatureInput.value = temperatureInput.value.replace(/[^0-9.]/g, '');
+            // });
+
+
+            break;
+
+        case 5:
+            thirdColumn.innerHTML = " <h4> Step 5 </h4> <p>To start scanning, We have to turn on the X-ray radiation, open the shutter, and press the Start scanning button. The left panel dynamically displays either the Bragg-Brentano diagram or goniometer status. The right panel shows the scattering X-ray pattern being recorded. After the scanning is completed, the generated X-ray pattern can be saved for further examination.</p>"
             break;
         case 6:
             const storedSampleNamePeek = sessionStorage.getItem('selectedOption');
@@ -86,7 +97,8 @@ function updateThirdColumn() {
             thirdColumn.innerHTML = `<h4>Assignment</h4><p>
             X-ray diffraction patterns of  powder samples Given by XRD. 
 Determine precisely lattice parameters.</p>
-<input id="aInput" >value of a </input>
+<label for = "aInput" > value of a : </label>
+<input id="aInput" ></input>
 
 <button  id="submitButton" > Submit </button>
 `
@@ -100,12 +112,13 @@ Determine precisely lattice parameters.</p>
             // Add a click event listener to the submit button
             submitButton.addEventListener('click', () => {
                 // Get the entered value from the input field and convert it to a number
-                const enteredAValue = parseFloat(aInput.value);
+                const enteredAValue = parseInt(aInput.value);
 
                 // Check if the entered value is equal to the target value
                 if (enteredAValue === targetAValue) {
                     alert(`Lattice Parameter value ${targetAValue} is Correct.`);
-                } else {
+                }
+                 else {
                     alert(' Value of Lattice Parameter is wrong, Please Calculate again or go ahead. ');
                 }
             });
@@ -189,6 +202,7 @@ window.addEventListener('click', function (event) {
 dropdownBtn.addEventListener('click', function () {
     dropdownContent.classList.toggle('show');
 });
+
 
 
 function reset() {
