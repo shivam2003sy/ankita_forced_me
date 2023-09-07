@@ -6,13 +6,17 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: black;
 }
 
 header {
-    background-color: #333;
+    background-color: #4b4848;
     color: white;
-    padding: 5px;
+    padding-top: 10px;
+    text-align: center;
+    border-bottom: 2px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0 10px;
 }
 
 main {
@@ -29,6 +33,9 @@ footer {
     background-color: #333;
     color: white;
     padding: 10px;
+    border-top: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .page {
@@ -39,15 +46,50 @@ footer {
     display: block;
 }
 
+
+.tracking-sidebar{
+  border-right: 2px solid rgb(42, 41, 41);
+  padding-right: 2vmax;
+  
+}
+
+.tracking-sidebar h4{
+  text-align: center;
+  border-bottom: 1.7px solid #333;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-bottom: 0.4vmax;
+  
+}
+.tracking-sidebar ul li{
+  
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .tracking-sidebar ul li.active {
     background-color: #007bff; /* Change this color to your preferred active step highlight color */
     color: white;
+    padding: 0 5px;
+    border-radius: 5px;
 }
+
+.tracking-sidebar button{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 5px;
+}
+
+.tracking-sidebar button:hover{
+  background-color: #252627;
+  color: #ffffff;
+}
+
+
 .hidden {
     display: none;
 }
+
+
 .image-container:hover img {
-    transform: scale(1.87); /* Increase the size on hover (you can adjust the scale factor) */
+    transform: scale(1.50); /* Increase the size on hover (you can adjust the scale factor) */
 }
 
 /* Style the dropdown container */
@@ -60,8 +102,9 @@ footer {
   .dropbtn {
     background-color: #4CAF50;
     color: white;
-    padding: 10px;
+    padding: 8px 10px;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
   }
   
@@ -122,3 +165,38 @@ footer {
 #page7 tr:hover {
   background-color: #e0e0e0;
 }
+
+/*  ==== third column ==== */
+#third-column{
+  border-left: 2px solid rgb(42, 41, 41);
+}
+
+#third-column>h4{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#third-column>p{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#third-column>p1{
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.page{
+  text-align: center;
+ 
+}
+.page>p{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h3{
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 20px;
+}
+
