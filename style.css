@@ -210,6 +210,50 @@ h3{
   
 }
 
+#third-column> .card{
+  border: 1.5px solid rgb(81, 77, 77);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#third-column >  .card > h6{
+  font-size: 18px;
+}
+
+
+#third-column >  .card >   .input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120px;
+  margin: 10px auto;
+  font-size: 18px;
+}
+
+#third-column > .card >  .input-group > #temperature{
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#third-column > .card > .input-group > button {
+  padding: 3px 8px;
+  background-color: #454242;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#third-column > .card > .input-group > button:hover{
+  background-color: #252627
+}
+#third-column >  .card > .input-group >  button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 #aInput{
   border-radius: 10px;
 }

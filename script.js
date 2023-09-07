@@ -43,10 +43,36 @@ function updateThirdColumn() {
                                             <p>Here we are determining the lattice parameter of BCC & FCC using XRD. </p>`;
             break;
         case 2:
-            thirdColumn.innerHTML = ' <h4>Explian </h4> <strong>1. X-ray Source:</strong><p1> X-ray tubes or synchrotrons are commonly used as X-ray sources. X-rays are produced by bombarding a target material with high-energy electrons.</p1> <br/> <strong>2. Sample Holder or Goniometer: </strong><p1>The sample holder, often part of a goniometer, holds the sample in a fixed position.<p1/> <br/> <strong>3. Detector: </strong><p1>X-rays that are scattered by the sample at different angles strike a detector. data collected by the detector forms the diffraction pattern. <p1/>'
+            thirdColumn.innerHTML = ' <h4>Explanation </h4> <strong>1. X-ray Source:</strong><p1> X-ray tubes or synchrotrons are commonly used as X-ray sources. X-rays are produced by bombarding a target material with high-energy electrons.</p1> <br/> <strong>2. Sample Holder or Goniometer: </strong><p1>The sample holder, often part of a goniometer, holds the sample in a fixed position.</p1> <br/> <strong>3. Detector: </strong><p1>X-rays that are scattered by the sample at different angles strike a detector. data collected by the detector forms the diffraction pattern. <p1/>'
             break;
         case 3:
-            thirdColumn.innerHTML = '<h4> Sample </h4><p>Choose the sample</p>';
+            thirdColumn.innerHTML = '  <div class="card">  <h6> Setup scanning parameters</h6> <hr/> <label for="temperature"> <strong> Temperature (°C): </strong></label> <div class="input-group"><button id="decrease">-</button><input type="text" id="temperature" value="25" readonly><button id="increase">+</button></div>   <strong> Scanning: </strong>   </div>';
+
+
+            const decreaseButton = document.getElementById('decrease');
+            const increaseButton = document.getElementById('increase');
+            const temperatureInput = document.getElementById('temperature');
+
+            // Function to decrease temperature
+            decreaseButton.addEventListener('click', () => {
+                let currentTemperature = parseFloat(temperatureInput.value);
+                currentTemperature -= 5;
+                temperatureInput.value = currentTemperature.toFixed(1);
+            });
+
+            // Function to increase temperature
+            increaseButton.addEventListener('click', () => {
+                let currentTemperature = parseFloat(temperatureInput.value);
+                currentTemperature += 5;
+                temperatureInput.value = currentTemperature.toFixed(1);
+            });
+
+            // Prevent non-numeric input in the temperature field
+            temperatureInput.addEventListener('input', () => {
+                temperatureInput.value = temperatureInput.value.replace(/[^0-9.]/g, '');
+            });
+
+
             break;
         case 4:
             storedSampleName = sessionStorage.getItem('selectedOption');
@@ -65,24 +91,24 @@ Determine precisely lattice parameters.</p>
 <button  id="submitButton" > Submit </button>
 `
 
-const aInput = document.getElementById('aInput');
-const submitButton = document.getElementById('submitButton');
+            const aInput = document.getElementById('aInput');
+            const submitButton = document.getElementById('submitButton');
 
-// Define the target value for 'a'
-const targetAValue = 10; // Change this to your desired target value
+            // Define the target value for 'a'
+            const targetAValue = 10; // Change this to your desired target value
 
-// Add a click event listener to the submit button
-submitButton.addEventListener('click', () => {
-  // Get the entered value from the input field and convert it to a number
-  const enteredAValue = parseFloat(aInput.value);
+            // Add a click event listener to the submit button
+            submitButton.addEventListener('click', () => {
+                // Get the entered value from the input field and convert it to a number
+                const enteredAValue = parseFloat(aInput.value);
 
-  // Check if the entered value is equal to the target value
-  if (enteredAValue === targetAValue) {
-    alert(`Lattice Parameter value ${targetAValue} is Correct.`);
-  } else {
-    alert(' Value of Lattice Parameter is wrong, Please Calculate again or go ahead. ');
-  }
-});
+                // Check if the entered value is equal to the target value
+                if (enteredAValue === targetAValue) {
+                    alert(`Lattice Parameter value ${targetAValue} is Correct.`);
+                } else {
+                    alert(' Value of Lattice Parameter is wrong, Please Calculate again or go ahead. ');
+                }
+            });
             break;
 
         case 7:
@@ -94,7 +120,7 @@ submitButton.addEventListener('click', () => {
             ${values.map(value => `<li>${value}</li>`).join('')}</ol>`;
                 thirdColumn.innerHTML = orderedListHTML;
             }
-        break;
+            break;
 
         case 8:
 
@@ -229,56 +255,56 @@ const data = [
 ];
 
 // function generateTable() 
-    // Your data for the table
-    // const data = [
-    //     { theta: 38.68, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
-    //     { theta: 44.98, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
-    //     { theta: 65.49, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
-    // ];
+// Your data for the table
+// const data = [
+//     { theta: 38.68, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
+//     { theta: 44.98, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
+//     { theta: 65.49, formula: (theta) => ({ theta, thetaOver2: theta / 2, s: Math.sin(Math.PI * theta / 360) }) },
+// ];
 
-    // Calculate and add the result for each data entry
-    const lambda = 1.5418; // Replace with your wavelength in angstroms
+// Calculate and add the result for each data entry
+const lambda = 1.5418; // Replace with your wavelength in angstroms
 
-    data.forEach(entry => {
-        const thetaRadians = (Math.PI * entry.theta) / 180;
-        entry.result = lambda / (2 * Math.sin(thetaRadians / 2));
-    });
+data.forEach(entry => {
+    const thetaRadians = (Math.PI * entry.theta) / 180;
+    entry.result = lambda / (2 * Math.sin(thetaRadians / 2));
+});
 
-    // Start building the HTML table
-    let tableHTML = '<table>';
+// Start building the HTML table
+let tableHTML = '<table>';
+tableHTML += '<tr>';
+tableHTML += '<th> λ(Å)</th>';
+tableHTML += '<th>h</th>';
+tableHTML += '<th>k</th>';
+tableHTML += '<th>l</th>';
+tableHTML += '<th>2θ</th>';
+tableHTML += '<th>θ</th>';
+tableHTML += '<th>sinθ</th>';
+tableHTML += '<th>dhlk = λ/2sinθ</th>'; // Add a new column for the calculated result
+tableHTML += '<th> a </th>';
+tableHTML += '</tr>';
+
+// Loop through the data and add rows
+for (const row of data) {
+    const calculatedData = row.formula(row.theta);
     tableHTML += '<tr>';
-    tableHTML += '<th> λ(Å)</th>';
-    tableHTML += '<th>h</th>';
-    tableHTML += '<th>k</th>';
-    tableHTML += '<th>l</th>';
-    tableHTML += '<th>2θ</th>';
-    tableHTML += '<th>θ</th>';
-    tableHTML += '<th>sinθ</th>';
-    tableHTML += '<th>dhlk = λ/2sinθ</th>'; // Add a new column for the calculated result
-    tableHTML += '<th> a </th>';
+    tableHTML += `<td>1.5</td>`;
+    tableHTML += `<td></td>`;
+    tableHTML += `<td></td>`;
+    tableHTML += `<td></td>`;
+    tableHTML += `<td>${calculatedData.theta.toFixed(2)}</td>`;
+    tableHTML += `<td>${calculatedData.thetaOver2.toFixed(2)}</td>`;
+    tableHTML += `<td>${calculatedData.s.toFixed(10)}</td>`;
+    tableHTML += `<td>${row.result.toFixed(10)}</td>`; // Display the calculated result
+    tableHTML += `<td></td>`;
     tableHTML += '</tr>';
+}
 
-    // Loop through the data and add rows
-    for (const row of data) {
-        const calculatedData = row.formula(row.theta);
-        tableHTML += '<tr>';
-        tableHTML += `<td>1.5</td>`;
-        tableHTML += `<td></td>`;
-        tableHTML += `<td></td>`;
-        tableHTML += `<td></td>`;
-        tableHTML += `<td>${calculatedData.theta.toFixed(2)}</td>`;
-        tableHTML += `<td>${calculatedData.thetaOver2.toFixed(2)}</td>`;
-        tableHTML += `<td>${calculatedData.s.toFixed(10)}</td>`;
-        tableHTML += `<td>${row.result.toFixed(10)}</td>`; // Display the calculated result
-        tableHTML += `<td></td>`;
-        tableHTML += '</tr>';
-    }
+// Finish building the HTML table
+tableHTML += '</table>';
 
-    // Finish building the HTML table
-    tableHTML += '</table>';
-
-    // Replace the content of the element with id "page7" with the new content
-    document.getElementById('page7').innerHTML = tableHTML;
+// Replace the content of the element with id "page7" with the new content
+document.getElementById('page7').innerHTML = tableHTML;
 
 
 
