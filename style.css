@@ -47,11 +47,6 @@ footer {
 }
 
 
-.tracking-sidebar{
-  border-right: 2px solid rgb(42, 41, 41);
-  padding-right: 2vmax;
-  
-}
 
 .tracking-sidebar h4{
   text-align: center;
@@ -167,11 +162,13 @@ footer {
 }
 
 /*  ==== third column ==== */
-#third-column{
-  border-left: 2px solid rgb(42, 41, 41);
-}
+
+
+
 
 #third-column>h4{
+
+  margin-top: 15%;
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -200,3 +197,19 @@ h3{
     margin-bottom: 20px;
 }
 
+@media screen and  (min-width: 1024px) {
+  .tracking-sidebar{
+    border-right: 2px solid rgb(42, 41, 41);
+    padding-right: 2vmax;
+    
+  }
+
+  #third-column{
+    border-left: 2px solid rgb(42, 41, 41);
+  }
+  
+}
+
+#aInput{
+  border-radius: 10px;
+}

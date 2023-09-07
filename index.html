@@ -19,7 +19,13 @@
             display: flex;
             flex-direction: column;
             /* background-color: black; */
+            
+        }
+
+        @media screen and (min-width:1024px) {
+            body {
             overflow: hidden;
+        }
         }
 
         .page img {
@@ -67,9 +73,11 @@
                             <li data-page="page2">Know XRD Machine</li>
                             <li data-page="page3">Sample Preparation</li>
                             <li data-page="page4">Put Sample into machine</li>
-                            <li data-page="page5"> output </li>
-                            <li data-page="page6">Peek label</li>
-                            <li data-page="page6">pattern indexed</li>
+                            <li data-page="page5"> Generate Sample</li>
+                            <li data-page="page6"> output </li>
+                            <li data-page="page7">Peek label</li>
+                            <li data-page="page8">pattern indexed</li>
+                            <li data-page="page9">Result</li>
                         </ul>
                         <button onclick="reset()"> Reset </button>
                     </div>
@@ -117,6 +125,11 @@
                         </div>
 
                         <div class="page" id="page5">
+                            <h3> Generating graph</h3>
+                            <img src="samplegenerate.gif" alt="Generate Sample"/>
+                        </div>
+
+                        <div class="page" id="page6">
                             <h3>X-ray diffraction patterns</h3>
                             <img id="imageToShow" src="" alt="Image" />
                         </div>
@@ -126,10 +139,14 @@
                             <h3>Caculation</h3>
                             <img id="imageToShowPeeks" src="" alt="Image" />
                         </div>
-                        
 
                         <div class="page" id="page7">
+                            
+                        </div>
 
+
+                        <div class="page" id="page8">
+                            <strong>Result : </strong>
                         </div>
 
 

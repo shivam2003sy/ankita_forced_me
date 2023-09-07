@@ -43,7 +43,7 @@ function updateThirdColumn() {
                                             <p>Here we are determining the lattice parameter of BCC & FCC using XRD. </p>`;
             break;
         case 2:
-            thirdColumn.innerHTML = '<strong>1. X-ray Source:</strong><p1> X-ray tubes or synchrotrons are commonly used as X-ray sources. X-rays are produced by bombarding a target material with high-energy electrons.</p1> <br/> <strong>2. Sample Holder or Goniometer: </strong><p1>The sample holder, often part of a goniometer, holds the sample in a fixed position.<p1/> <br/> <strong>3. Detector: </strong><p1>X-rays that are scattered by the sample at different angles strike a detector. data collected by the detector forms the diffraction pattern. <p1/>'
+            thirdColumn.innerHTML = ' <h4>Explian </h4> <strong>1. X-ray Source:</strong><p1> X-ray tubes or synchrotrons are commonly used as X-ray sources. X-rays are produced by bombarding a target material with high-energy electrons.</p1> <br/> <strong>2. Sample Holder or Goniometer: </strong><p1>The sample holder, often part of a goniometer, holds the sample in a fixed position.<p1/> <br/> <strong>3. Detector: </strong><p1>X-rays that are scattered by the sample at different angles strike a detector. data collected by the detector forms the diffraction pattern. <p1/>'
             break;
         case 3:
             thirdColumn.innerHTML = '<h4> Sample </h4><p>Choose the sample</p>';
@@ -54,17 +54,38 @@ function updateThirdColumn() {
             loadImage(storedSampleName)
             thirdColumn.innerHTML = '<h4>Page 4 Content</h4><p>This is the content of Page 3.</p>';
             break;
-        case 5:
+        case 6:
             const storedSampleNamePeek = sessionStorage.getItem('selectedOption');
             loadPeeksImages(storedSampleNamePeek)
             thirdColumn.innerHTML = `<h4>Assignment</h4><p>
             X-ray diffraction patterns of  powder samples Given by XRD. 
 Determine precisely lattice parameters.</p>
-<input>value of a </input>
+<input id="aInput" >value of a </input>
+
+<button  id="submitButton" > Submit </button>
 `
+
+const aInput = document.getElementById('aInput');
+const submitButton = document.getElementById('submitButton');
+
+// Define the target value for 'a'
+const targetAValue = 10; // Change this to your desired target value
+
+// Add a click event listener to the submit button
+submitButton.addEventListener('click', () => {
+  // Get the entered value from the input field and convert it to a number
+  const enteredAValue = parseFloat(aInput.value);
+
+  // Check if the entered value is equal to the target value
+  if (enteredAValue === targetAValue) {
+    alert(`Lattice Parameter value ${targetAValue} is Correct.`);
+  } else {
+    alert(' Value of Lattice Parameter is wrong, Please Calculate again or go ahead. ');
+  }
+});
             break;
 
-        case 6:
+        case 7:
 
             if (storedSampleName == 'Sample no. 0134') {
                 const values = [38.68, 44.98, 65.49, 78.73, 82.98];
@@ -75,7 +96,7 @@ Determine precisely lattice parameters.</p>
             }
             break;
 
-        case 7:
+        case 8:
 
 
 
