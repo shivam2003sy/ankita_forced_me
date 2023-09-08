@@ -48,19 +48,8 @@ function updateThirdColumn() {
 
 
         case 3:
-            storedSampleName = sessionStorage.getItem('selectedOption');
-            console.log(storedSampleName)
-            loadImage(storedSampleName)
-            thirdColumn.innerHTML = '<h4>Page 4 Content</h4><p>This is the content of Page 3.</p>';
-            break;
-        case 4:
-
             thirdColumn.innerHTML = ' <h4>Step 4 </h4>  <p> After the sample has been installed and the doors closed, We should specify the parameters of scanning (starting and ending angle, step, radiation, the use of a monochromator, and experiment temperature).</p> '
 
-
-            // ===== card html =======
-
-            // thirdColumn.innerHTML = '  <div class="card">  <h6> Setup scanning parameters</h6> <hr/> <label for="temperature"> <strong> Temperature (°C): </strong></label> <div class="input-group"><button id="decrease">-</button><input type="text" id="temperature" value="25" readonly><button id="increase">+</button></div>   <strong> Scanning: </strong>   </div>';
 
             const decreaseButton = document.getElementById('decrease');
             const increaseButton = document.getElementById('increase');
@@ -86,6 +75,16 @@ function updateThirdColumn() {
             });
 
 
+
+            break;
+
+
+        case 4:
+
+            storedSampleName = sessionStorage.getItem('selectedOption');
+            console.log(storedSampleName)
+            loadImage(storedSampleName)
+            thirdColumn.innerHTML = '<h4>Page 4 Content</h4><p>This is the content of Page 3.</p>';
             break;
 
         case 5:
@@ -118,7 +117,7 @@ Determine precisely lattice parameters.</p>
                 if (enteredAValue === targetAValue) {
                     alert(`Lattice Parameter value ${targetAValue} is Correct.`);
                 }
-                 else {
+                else {
                     alert(' Value of Lattice Parameter is wrong, Please Calculate again or go ahead. ');
                 }
             });
@@ -129,15 +128,32 @@ Determine precisely lattice parameters.</p>
             if (storedSampleName == 'Sample no. 0134') {
                 const values = [38.68, 44.98, 65.49, 78.73, 82.98];
                 const orderedListHTML = `<h4>Values of 2θ from Graph</h4><ol>
-            <h5>(2θ)</h5>
+            
             ${values.map(value => `<li>${value}</li>`).join('')}</ol>`;
                 thirdColumn.innerHTML = orderedListHTML;
             }
             break;
 
+
         case 8:
 
+            if (storedSampleName == 'Sample no. 0134') {
+                const values = [10, 30, 50, 39, 72];
+                const orderedListHTML = ` <img src="braggsLaw.png" style=" width:85%"/>
+                <h4>Values of a from Graph</h4><ol>  <h5>(Å)</h5>
+            ${values.map(value => `<li>${value}</li>`).join('')}</ol>`;
+                thirdColumn.innerHTML = orderedListHTML;  
+            }
 
+            
+            break;
+
+        case 9:
+            thirdColumn.innerHTML = ''; // Clear the content if no match
+            break;
+
+
+        case 10:
 
             // List of peak positions in 2θ angles (in degrees)
             const peakPositions = [10, 20, 30, 40, 50]; // Replace with your peak positions
@@ -212,10 +228,6 @@ function reset() {
     // Reload the page
     location.reload();
 }
-
-
-
-
 
 
 document.addEventListener("DOMContentLoaded", function () {
